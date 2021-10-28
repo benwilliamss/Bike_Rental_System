@@ -14,9 +14,9 @@ class Order:
     def place_order(self, bikes_ordered) -> bool:
         #bikes_ordered
         #cross check with inventory 
-        #return bikes_ordered <=  Inventory.GetBikeQuantity
+        #if bikes_ordered <=  Inventory.GetBikeQuantity: self.order_status = True
     
-        return True
+        return self.order_status
     
     def set_order_details(self, name, tele, address):
         self.name = name

@@ -11,7 +11,7 @@ from datetime import datetime
 class RentalFee(ABC):
 
     @abstractmethod
-    def calculate_fee(self) -> int :
+    def calculate_fee(self) -> float :
         pass
     
     def current_rental_duration(self, order) -> datetime:
@@ -21,7 +21,7 @@ class RentalFee(ABC):
 class NoDiscountRentalFee(RentalFee): 
 
 
-    def calculate_fee(self, order) -> int:
+    def calculate_fee(self, order) -> float:
         bill = 0
         rental_duration = super().current_rental_duration(order) 
         days = rental_duration.days
@@ -37,7 +37,7 @@ class NoDiscountRentalFee(RentalFee):
 
 class FamilyDiscountRentalFee(RentalFee):
 
-     def calculate_fee(self, order)-> int:
+     def calculate_fee(self, order)-> float:
         bill = 0
         rental_duration = super().current_rental_duration(order)
         print(rental_duration)
