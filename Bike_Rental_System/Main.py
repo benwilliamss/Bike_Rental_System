@@ -21,12 +21,36 @@ from Bike_Order import Order
 
 def main():
 
+    #initialise inventory and potentially 
+
+    #while loop undefined amount of iterations
+    #Two options: Order a bike or pay and return 
+
+    #order a bike 
+    """
+    - will create an object for order containing user details 
+     -user details will need to be checked for string types on tele, name and address
+    """
+    #pay & return
+    """
+    - will need to fetch object of the 
+    - will call the rental fee 
+    - will delete the object of rental fee after paid??
+    - bikes returned will need to update the inventory
+    """ 
+
+
+
+
+
     #have the user interface here 
 
     #call the bike rental system as soon as 
     family_order = Order()
 
-    solo_order = Order()
+    solo_order = Order() #move Order() that into the condition below 
+
+    #solo_order.set_order_details("Ben Williams","0730283048", "34 Zoo Lane, Powys, Wales") if solo_order.place_order(1) else print("order failed. Please select a new option") 
     
     individual_account_fee = Rental_Fee.NoDiscountRentalFee()
     family_account_fee = Rental_Fee.FamilyDiscountRentalFee()

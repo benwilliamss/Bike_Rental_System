@@ -6,7 +6,7 @@ Rent bikes on weekly basis $60 per week.
 
 from abc import ABC, abstractmethod
 from Bike_Order import Order
-
+from datetime import datetime
 
 class RentalFee(ABC):
 
@@ -14,15 +14,16 @@ class RentalFee(ABC):
     def calculate_fee(self) -> int :
         pass
     
-    
-
+    def current_rental_duration(self, order) -> datetime:
+        return datetime.now()- order.get_order_date()
+        #duration rented #format: days,hours:minutes:seconds.microseconds
 
 class NoDiscountRentalFee(RentalFee): 
 
 
-    def calculate_fee(self, Order):
+    def calculate_fee(self, order) -> int:
         bill = 0
-        rental_duration = Order.current_rental_duration() #composition to avoid further dependentcies with inheritance
+        rental_duration = super().current_rental_duration(order) 
         days = rental_duration.days
         
         #if less than 7days add the days to bill
@@ -36,9 +37,9 @@ class NoDiscountRentalFee(RentalFee):
 
 class FamilyDiscountRentalFee(RentalFee):
 
-     def calculate_fee(self, Order):
+     def calculate_fee(self, order)-> int:
         bill = 0
-        rental_duration = Order.current_rental_duration()
+        rental_duration = super().current_rental_duration(order)
         print(rental_duration)
 
         #calculate weeks/months/years/rental 
