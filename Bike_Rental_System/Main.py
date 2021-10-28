@@ -16,18 +16,24 @@ The bike rental shop can
     display available inventory
     take requests on hourly, daily and weekly basis by cross verifying stock
   """
-import Bike_Rental
+import Rental_Fee
+from Bike_Order import Order
 
 def main():
 
     #have the user interface here 
 
     #call the bike rental system as soon as 
+    family_order = Order()
 
-    standing_account = Bike_Rental.BikeRentalFee()
+    solo_order = Order()
+    
+    individual_account_fee = Rental_Fee.NoDiscountRentalFee()
+    family_account_fee = Rental_Fee.FamilyDiscountRentalFee()
     #standing_account.rental_duration()
 
-    print("Amount to pay £",standing_account.calculate_rental_fee(False))
+    print("Amount the family has to pay £", family_account_fee.calculate_fee(family_order))
+    print("Amount the individual has to pay £",individual_account_fee.calculate_fee(solo_order)) 
     
 
 main()
