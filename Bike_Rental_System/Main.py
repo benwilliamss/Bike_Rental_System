@@ -18,14 +18,18 @@ The bike rental shop can
   """
 import Rental_Fee
 from Bike_Order import Order
+from Inventory import InventorySingleton
 
 def main():
 
     #initialise inventory and potentially 
 
-    #while loop undefined amount of iterations
-    #Two options: Order a bike or pay and return 
+    BikeInventory = InventorySingleton() #inventory
 
+    #while loop - undefined amount of iterations
+    #Two options: Order a bike or pay and return
+     
+#have the user interface here 
     #order a bike 
     """
     - will create an object for order containing user details 
@@ -39,11 +43,7 @@ def main():
     - bikes returned will need to update the inventory
     """ 
 
-
-
-
-
-    #have the user interface here 
+    
 
     #call the bike rental system as soon as 
     family_order = Order()
