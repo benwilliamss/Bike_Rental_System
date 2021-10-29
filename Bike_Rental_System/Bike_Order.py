@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from Inventory import InventorySingleton
 
 class Order:
     
@@ -9,13 +9,12 @@ class Order:
         self.telephone = ""
         self.address = ""
         self.order_status = False
-        print("Order date start:", self.order_date)
+        
     
-    def place_order(self, bikes_ordered) -> bool:
+    def place_order(self, bikes_ordered:int) -> bool:
         #bikes_ordered
-        #cross check with inventory 
-        #if bikes_ordered <=  Inventory.GetBikeQuantity: self.order_status = True
-    
+        #cross checked with inventory 
+        self.order_status = (bikes_ordered <= InventorySingleton.get_quantity_of_bikes(InventorySingleton()))
         return self.order_status
     
     def set_order_details(self, name, tele, address):

@@ -50,8 +50,14 @@ def main():
 
     solo_order = Order() #move Order() that into the condition below 
 
-    #solo_order.set_order_details("Ben Williams","0730283048", "34 Zoo Lane, Powys, Wales") if solo_order.place_order(1) else print("order failed. Please select a new option") 
-    
+    if solo_order.place_order(1):
+        print("Order placed")
+        solo_order.set_order_details("Ben Williams","0730283048", "34 Zoo Lane, Powys, Wales")
+        print("name:", solo_order.name, " address:", solo_order.address)
+       
+    else:
+         print("order failed. Please select a new option") 
+   
     individual_account_fee = Rental_Fee.NoDiscountRentalFee()
     family_account_fee = Rental_Fee.FamilyDiscountRentalFee()
     #standing_account.rental_duration()
